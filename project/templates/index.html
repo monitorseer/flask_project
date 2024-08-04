@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="sub-header">Student Dashboard</div>
+            <div class="sub-header">Welcome user!</div>
+        </div>
+        <div class="left-column">
+            <div class="text-container">
+                <div class="title">Homework Reminder</div>
+                <div class="text">Text 1: This is some sample text for the first box. It will be displayed horizontally.</div>
+                <button class="small-button">View All</button>
+            </div>
+            <div class="text-container">
+                <div class="title">Exam Reminder</div>
+                <div class="text">Text 2: This is some sample text for the second box. It will also be displayed horizontally.</div>
+                <button class="small-button">View All</button>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="button">Button 1</button>
+            <button class="button">Button 2</button>
+            <button class="button">Button 3</button>
+            <button class="button">Button 4</button>
+            <button class="button">Button 5</button>
+            <button class="button">Button 6</button>
+        </div>
+    </div>
+</body>
+</html>
