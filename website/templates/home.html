@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="sub-header">Student Dashboard</div>
+            <div class="sub-header">Welcome user!</div>
+        </div>
+        <div class="left-column">
+            <div class="text-container">
+                <div class="title">Notes</div>
+                <div class="text">Text 1: This is some sample text for the first box. It will be displayed horizontally.</div>
+                <button class="small-button">View All</button>
+            </div>
+            <div class="text-container">
+                <div class="title">Homework+Exam Reminders</div>
+                <div class="text">Text 2: This is some sample text for the second box. It will also be displayed horizontally.</div>
+                <button class="small-button">View All</button>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="button">Your details</button>
+            <button class="button">Timetable</button>
+            <button class="button">Weather</button>
+            <button class="button">Calendar</button>
+            <button class="button">ASRJC Portal</button>
+            <button class="button">Logout</button>
+        </div>
+    </div>
+</body>
+</html>
