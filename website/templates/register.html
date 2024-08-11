@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='loginlogout.css') }}">
 </head>
@@ -32,22 +32,31 @@
     {% endfor %}
 {% endif %}
 {% endwith %}
+
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title text-center">Login</h5>
-            <form method="POST">
+            <h5 class="card-title text-center">Register</h5>
+            <form action="{{ url_for('auth.register') }}", method="POST">
                 <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                    <label for="regName">Name</label>
+                    <input type="text" class="form-control" id="regName" name="name" placeholder="Enter name" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <label for="regEmail">Email address</label>
+                    <input type="email" class="form-control" id="regEmail" name="email" placeholder="Enter email" required>
                 </div>
-                <button type="submit" class="btn btn-custom btn-block">Login</button>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" class="form-control" id="regPassword" name="password1" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="password2" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Register</button>
             </form>
-            <p class="text-center mt-3">Don't have an account? <a href="/register">Register</a></p>
+            <p class="text-center mt-3">Already have an account? <a href="/login">Login</a></p>
         </div>
     </div>
 </div>
