@@ -61,6 +61,8 @@ def register():
             flash('Passwords don\'t match.', category='error')
         elif len(password1) < 7:
             flash('Password must be minimally 7 characters long.', category='error')
+        elif len(password1) > 128:
+            flash('Password must be at most 128 characters long!', category='error')
         else:
             # Associates a DB object with the new user, also hashes and salts the password for extra security
             new_user = User(email=email, name=name, password=generate_password_hash(password1, method='pbkdf2:sha256'))
