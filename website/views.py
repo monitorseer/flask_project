@@ -9,7 +9,8 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=["GET", "POST"])
 @login_required
 def home():
-    return render_template("home.html", user=current_user)
+    user_notes = Note.query.filter_by(user_id=current_user.id).all() # Retrieves all notes from user
+    return render_template("home.html", user=current_user, notes=user_notes) # Passes notes to dashboard
 
 @views.route('/notes', methods=["GET", "POST"])
 @login_required
@@ -22,6 +23,8 @@ def notes():
             flash('Note is too short!', category='error')
         elif len(note) > 10000:
             flash('Note is too long!', category='error')
+        elif len(title) > 100:
+            flash('Title is too long!', category='error')
         else:
             # Adds note to DB
             new_note = Note(data=note, title=title, user_id=current_user.id)
@@ -32,6 +35,7 @@ def notes():
     return render_template("notes.html", user=current_user)
 
 @views.route('/delete-note', methods=["POST"])
+@login_required
 def delete_note():
     note = json.loads(request.data) # Retrieves notes
     noteId = note['noteId'] # Loads data as a python dictionary 

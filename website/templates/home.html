@@ -11,17 +11,31 @@
     <div class="container">
         <div class="header">
             <div class="sub-header">Student Dashboard</div>
-            <div class="sub-header">Welcome user!</div>
+            <div class="sub-header">Welcome {{ user.name }}!</div>
         </div>
         <div class="left-column">
             <div class="text-container">
                 <div class="title">Notes</div>
-                <div class="text">Text 1: This is some sample text for the first box. It will be displayed horizontally.</div>
-                <button class="small-button"><a href="/notes">View All</a></button>
+                <div class="notes-list">
+                    {% for note in user.notes %}
+                    <div class="note-item">
+                        <h5>{{ note.title }}</h5>
+                        <p>{{ note.data }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="small-button" onClick="location.href='/notes'">View All</button>
             </div>
             <div class="text-container">
                 <div class="title">Homework+Exam Reminders</div>
-                <div class="text">Text 2: This is some sample text for the second box. It will also be displayed horizontally.</div>
+                <div class="reminders-list">
+                    {% for reminder in user.reminders %}
+                    <div class="reminder-item">
+                        <h5>{{ reminder.title }}</h5>
+                        <p>{{ reminder.data }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
                 <button class="small-button">View All</button>
             </div>
         </div>

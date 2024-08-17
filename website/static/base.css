@@ -41,3 +41,27 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+.note-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.note-item h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.note-item p {
+    margin-bottom: 0;
+}
+
+.note-item .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

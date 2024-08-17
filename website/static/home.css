@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-	font-family: 'Segoe UI'
+    font-family: 'Segoe UI';
 }
 
 .container {
@@ -41,7 +41,7 @@ body, html {
     grid-column: 1;
     grid-row: 2;
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Changed to column to stack vertically */
     background-color: #e1e1e1;
 }
 
@@ -53,33 +53,42 @@ body, html {
     background-color: #d1d1d1;
     padding: 10px;
     margin: 5px;
+    height: 50%; /* Ensure both containers take up equal space */
+    overflow: hidden; /* Prevent overflow from affecting layout */
 }
 
 .title {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #b1b1b1;
     font-size: 16px;
     font-weight: bold;
     padding: 5px;
     border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.text {
-    flex: 8;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-    font-size: 16px;
-    padding: 10px;
-    overflow-y: auto;
+.notes-list, .reminders-list {
+    flex: 1;
+    overflow-y: auto; /* Add a scroll bar if content exceeds the height */
+}
+
+.note-item, .reminder-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.note-item h5, .reminder-item h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.note-item p, .reminder-item p {
+    margin-bottom: 0;
 }
 
 .small-button {
-    flex: 1;
     font-size: 14px;
     border: none;
     border-radius: 5px;
@@ -87,6 +96,7 @@ body, html {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 10px;
+    align-self: center; /* Center the button */
 }
 
 .small-button:hover {
