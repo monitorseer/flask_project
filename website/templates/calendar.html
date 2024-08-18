@@ -2,6 +2,10 @@
 {% block title %}Calendar{% endblock %}
 {% block head %}
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+{% endblock %}
+{% block content %}
+    <h1>Calendar</h1>
+    <div id='calendar'></div>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -24,8 +28,4 @@
             calendar.render();
         });
     </script>
-{% endblock %}
-{% block content %}
-    <h1>Calendar</h1>
-    <div id='calendar'></div>
 {% endblock %}
