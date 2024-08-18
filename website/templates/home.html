@@ -18,34 +18,41 @@
                 <div class="title">Notes</div>
                 <div class="notes-list">
                     {% for note in user.notes %}
-                    <div class="note-item">
-                        <h5>{{ note.title }}</h5>
-                        <p>{{ note.data }}</p>
-                    </div>
+                        {% if note.category == 'notes' %}
+                            <div class="note-item">
+                                <h5>{{ note.title }}</h5>
+                                <p class="note-id">ID: {{ note.id }}</p>
+                                <p>{{ note.data }}</p>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
                 <button class="small-button" onClick="location.href='/notes'">View All</button>
             </div>
             <div class="text-container">
-                <div class="title">Homework+Exam Reminders</div>
+                <div class="title">Work Reminders</div>
                 <div class="reminders-list">
-                    {% for reminder in user.reminders %}
-                    <div class="reminder-item">
-                        <h5>{{ reminder.title }}</h5>
-                        <p>{{ reminder.data }}</p>
-                    </div>
+                    {% for note in user.notes %}
+                        {% if note.category == 'work_reminder' %}
+                            <div class="reminder-item">
+                                <h5>{{ note.title }}</h5>
+                                <p class="note-id">ID: {{ note.id }}</p>
+                                <p>{{ note.data }}</p>
+                                <p class="dateline">Deadline: {{ note.deadline }}</p> <!-- Added deadline here -->
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
-                <button class="small-button">View All</button>
+                <button class="small-button" onClick="location.href='/notes'">View All</button>
             </div>
         </div>
         <div class="buttons">
-            <button class="button">Your details</button>
-            <button class="button">Timetable</button>
-            <button class="button">Weather</button>
-            <button class="button">Calendar</button>
-            <button class="button">ASRJC Portal</button>
-            <button class="button">Logout</button>
+            <button class="button" onClick="location.href='/details'">My Profile</button>
+            <button class="button" onClick="location.href='/timetable'">Timetable</button>
+            <button class="button" onClick="location.href='/weather'">Weather</button>
+            <button class="button" onclick="location.href='/calendar'">Calendar</button>
+            <button class="button" onClick="location.href='/links'">Useful Links</button>
+            <button class="button" onclick="location.href='/logout'">Logout</button>
         </div>
     </div>
 </body>

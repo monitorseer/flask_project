@@ -1,0 +1,78 @@
+{% extends 'base.html' %} 
+{% block title %}Weather{% endblock %}
+{% block content %}
+    <h1>Weather</h1>
+    <h2>Singapore</h2>
+    <hr>
+    <h3 id="weather-heading">Current Weather Details</h3>
+    <button id="toggle-button" onclick="toggleWeather()">Toggle Weather</button>
+    <div id="weather-data" style="display: none;">
+        <h3>Coordinates</h3>
+        <ul>
+            <li>Longitude: {{ data[0] }}</li>
+            <li>Latitude: {{ data[1] }}</li>
+        </ul>
+        <h3>Weather</h3>
+        <ul>
+            <li>Weather: {{ data[2] }}</li>
+            <li>Description: {{ data[3] }}</li>
+        </ul>
+        <h3>Temperature</h3>
+        <ul>
+            <li>Temperature: {{ data[4] }}°C</li>
+            <li>Feels like: {{ data[5] }}°C</li>
+            <li>Min temp: {{ data[6] }}°C</li>
+            <li>Max temp: {{ data[7] }}°C</li>
+            <li>Pressure: {{ data[8] }}Pa</li>
+            <li>Humidity: {{ data[9] }}g/m3</li>
+        </ul>
+        <h3>Wind</h3>
+        <ul>
+            <li>Speed: {{ data[10] }}m/s</li>
+            <li>Degree: {{ data[11] }}°</li>
+        </ul>
+    </div>
+    <hr>
+    <h3>4 Day Forecast</h3>
+    <button id="forecast-button" onclick="toggleForecast()">Toggle Forecast</button>
+    <div id="forecast-data" style="display: none;">
+        {% for day, weather, description in sg_data %}
+            <h4>{{ day }}</h4>
+            <ul>
+                <li>Low: {{ weather['low'] }}°C</li>
+                <li>High: {{ weather['high'] }}°C</li>
+                <li>Description: {{ description }}</li>
+            </ul>
+        {% endfor %}
+    </div>
+
+    <script>
+        function toggleForecast() {
+            var forecastData = document.getElementById("forecast-data");
+            var forecastButton = document.getElementById("forecast-button");
+
+            if (forecastData.style.display === "none") {
+                forecastData.style.display = "block";
+                forecastButton.textContent = "Retract Forecast";
+            } else {
+                forecastData.style.display = "none";
+                forecastButton.textContent = "Show Forecast";
+            }
+        }
+    </script>
+
+    <script>
+        function toggleWeather() {
+            var weatherData = document.getElementById("weather-data");
+            var toggleButton = document.getElementById("toggle-button");
+
+            if (weatherData.style.display === "none") {
+                weatherData.style.display = "block";
+                toggleButton.textContent = "Retract Weather";
+            } else {
+                weatherData.style.display = "none";
+                toggleButton.textContent = "Show Weather";
+            }
+        }
+    </script>
+{% endblock %}

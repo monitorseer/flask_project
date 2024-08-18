@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block title %}Timetable{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <div class="sub-header">Upload Timetable</div>
+        </div>
+        <div class="text-container">
+            <form action="/timetable" method="POST" enctype="multipart/form-data">
+                <label for="image">Select Timetable:</label>
+                <input type="file" id="image" name="image" accept=".htm" required><br>
+                <button type="submit">Upload</button>
+            </form>
+            <button class="small-button" onClick="location.href='/';">Back to Dashboard</button>
+        </div>
+        {% if file_path %}
+            <div class="uploaded-file">
+                <h3>Uploaded Timetable</h3>
+                <iframe src="{{ url_for('static', filename='uploads/' ~ file_path) }}" title="Student Timetable" width="100%" height="600px"></iframe>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
