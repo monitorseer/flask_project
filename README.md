@@ -1,1 +1,2 @@
-# ASRJC WA2 Flask Project :D
+# ASRJC WA2 Flask Project
+I made this as an extension to the ASRJC Portal, taking a more personalised approach to it where students can create notes, reminders for themselves that will be displayed once they log in and other features that others may find useful. I planned to add much more Quality-of-life features but was not able to do so and only created the most basic features. I took more time to understand the understand the new modules like os, SQLAlchemy that I have never experimented before and to debug their errors.
