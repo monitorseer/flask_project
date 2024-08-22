@@ -30,7 +30,7 @@ SQLAlchemy==2.0.32\
 Flask-Login==0.6.3\
 requests==2.32.3\
 Werkzeug==3.0.\
-gunicorn==20.1.0\
+gunicorn==20.1.0
 
 ## Challenges encountered
 Throughout this project, I encountered a few issues and it was not easy to get everything to work. This includes:
@@ -59,7 +59,6 @@ I made this as an extension to my school's portal, taking a more personalised ap
 6. Note deletion by id
 7. Include machine learning to predict weather
 8. Make the calendar more useful by incorporating deadlines and school events
-
 Maybe one day the school would incorporate parts of my idea into their portal, that would be cool to see!
 ## Credits
 I would like to thank Tech with Tim, a considerable chunk of my code actually comes from his two hour long Flask youtube video which was both informative and helpful.\
