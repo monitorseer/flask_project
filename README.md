@@ -7,30 +7,30 @@ The main page is a dashboard which displays data like the Notes / Work Reminders
 
 ### Functionalities
 It adds some new functionalities that are currently not in the School Portal which I think may be helpful to students. This includes:
-- Notes / Work Reminders
+- **Notes / Work Reminders**:
 They are essentially the same thing except the former can be for more general use while the latter is to help students set reminders for themselves so that they can keep up with their school work.
-- Weather
+- **Weather**:
 The weather part uses an API which retrieves Singapore's weather. The first part is for the current weather and the second part shows the weather conditions for the next four days.
-- Useful Links
+- **Useful Links**:
 Display hyperlinks that students frequently use to add as convenience for students.
 
 There are also some existing functionalities that are already present in the portal:
-- Profile
+- **My Profile**:
 Not as extensive as the Portal one. Just shows the Name and Email of the person that signed up.
-- Calendar
+- **Calendar**:
 To be honest, this barely does not do much at the time of writing. I was planning to sync the Notes / Work Reminders functionality into the calendar but have not done that yet. The portal already has existing events imported into the calendar so it would be great if I can incorporate that and the Notes / Work Reminders functionality into my calendar.
-- Timetable
+- **Timetable**:
 Currently allows user to attach only on htm file. Can be improved.
 
 ## How it's built
 Uses Flask from Python alongside HTML, CSS and JavaScript to create the website. You need to install the following for it to work, from requirements.py:
-Flask==3.0.3
-Flask-SQLAlchemy==3.1.1
-SQLAlchemy==2.0.32
-Flask-Login==0.6.3
-requests==2.32.3
-Werkzeug==3.0.
-gunicorn==20.1.0
+Flask==3.0.3\
+Flask-SQLAlchemy==3.1.1\
+SQLAlchemy==2.0.32\
+Flask-Login==0.6.3\
+requests==2.32.3\
+Werkzeug==3.0.\
+gunicorn==20.1.0\
 
 ## Challenges encountered
 Throughout this project, I encountered a few issues and it was not easy to get everything to work. This includes:
@@ -60,6 +60,7 @@ I made this as an extension to my school's portal, taking a more personalised ap
 7. Include machine learning to predict weather
 8. Make the calendar more useful by incorporating deadlines and school events
 
+Maybe one day the school would incorporate parts of my idea into their portal, that would be cool to see!
 ## Credits
-I would like to thank Tech with Tim, a considerable chunk of my code actually comes from his two hour long Flask youtube video which was both informative and helpful.
+I would like to thank Tech with Tim, a considerable chunk of my code actually comes from his two hour long Flask youtube video which was both informative and helpful.\
 I would also like to thank my teacher for opening up my horizons about full stack development with such a project.
