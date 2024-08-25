@@ -10,11 +10,11 @@
         </div>
         <div class="text-container">
             <form action="/timetable" method="POST" enctype="multipart/form-data">
-                <label for="image1">Select Timetable for Even Weeks:</label>
-                <input type="file" id="image1" name="image1" accept=".htm" required><br>
-                <label for="image2">Select Timetable for Odd Weeks:</label>
-                <input type="file" id="image2" name="image2" accept=".htm" required><br>
-                <button type="submit">Upload</button>
+            <label for="image1">Select Timetable for Even Weeks:</label>
+            <input type="file" id="image1" name="image1" accept=".htm, .html" required><br>
+            <label for="image2">Select Timetable for Odd Weeks:</label>
+            <input type="file" id="image2" name="image2" accept=".htm, .html" required><br>
+            <button type="submit">Upload</button>
             </form>
             <button class="small-button" onClick="location.href='/';">Back to Dashboard</button>
         </div>
@@ -29,4 +29,6 @@
             </div>
         {% endif %}
     </div>
+    <p>File Path 1: {{ file_path1 }}</p>
+    <p>File Path 2: {{ file_path2 }}</p>
 {% endblock %}

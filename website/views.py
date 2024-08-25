@@ -79,40 +79,47 @@ if not os.path.exists(UPLOAD_FOLDER):
 @views.route('/timetable', methods=["GET", "POST"])
 @login_required
 def timetable():
-    file_path = None
+    file_path1 = None
+    file_path2 = None
     if request.method == 'POST':
         # Ensures that a file is uploaded
-        if 'image' not in request.files:
+        if 'image1' not in request.files or 'image2' not in request.files:
             flash('No file part', category='error')
             return redirect(request.url)
         
-        file = request.files['image']
+        file1 = request.files['image1']
+        file2 = request.files['image2']
 
-        if file.filename == '':
-            flash('No selected file', category='error')
-            return redirect(request.url)
+        for file in [file1, file2]:
 
-        # Validate file extension
-        if not file.filename.endswith('.htm'):
-            flash('Invalid file type. Please upload an .htm file.', category='error')
-            return redirect(request.url)
-        
-        # If file exists, save it to the uploads folder
-        if file:
-            filename = secure_filename(file.filename) # Ensures that the filename is safe
-            file_path = os.path.join(UPLOAD_FOLDER, filename) # Construct file path
-            file.save(file_path) # Saves file to folder
-            file_path = os.path.normpath(file_path).replace('\\', '/') # Normalize the file path and replace backslashes with forward slashes
-            flash('File uploaded!', category='success')
-            # Updates DB with path
-            current_user.timetable_path = filename
-            db.session.commit()
-            print(file_path)
+            if file.filename == '':
+                flash('No selected file', category='error')
+                return redirect(request.url)
+
+            # Validate file extension
+            if not (file.filename.endswith('.htm') or file.filename.endswith('.html')):
+                flash('Invalid file type. Please upload an .htm file.', category='error')
+                return redirect(request.url)
+            
+            # If file exists, save it to the uploads folder
+            if file:
+                filename = secure_filename(file.filename) # Ensures that the filename is safe
+                file_path = os.path.join(UPLOAD_FOLDER, filename) # Construct file path
+                file.save(file_path) # Saves file to folder
+                file_path = os.path.normpath(file_path).replace('\\', '/') # Normalize the file path and replace backslashes with forward slashes
+                flash('File uploaded!', category='success')
+                # Updates DB with path
+                if file == file1:
+                    current_user.timetable_path = file_path1
+                else:
+                    current_user.timetable_path1 = file_path2
+                db.session.commit()
        
     if current_user.timetable_path: # Renders iframe if path exists
-        file_path = current_user.timetable_path
-        
-    return render_template("timetable.html", user=current_user, file_path=file_path)
+        file_path1 = current_user.timetable_path
+        file_path2 = current_user.timetable_path1
+
+    return render_template("timetable.html", user=current_user, file_path1=file_path1, file_path2=file_path2)
 
 
 # Weather Page

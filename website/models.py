@@ -20,4 +20,5 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True) # Only one user can have one email at a time
     password = db.Column(db.String(128))
     timetable_path = db.Column(db.String(150), nullable=True) # Stores path to timetable
+    timetable_path1 = db.Column(db.String(150), nullable=True) # Stores path to timetable
     notes = db.relationship('Note') # Connects user to notes
