@@ -110,9 +110,9 @@ def timetable():
                 flash('File uploaded!', category='success')
                 # Updates DB with path
                 if file == file1:
-                    current_user.timetable_path = file_path1
+                    current_user.timetable_path = filename
                 else:
-                    current_user.timetable_path1 = file_path2
+                    current_user.timetable_path1 = filename
                 db.session.commit()
        
     if current_user.timetable_path: # Renders iframe if path exists
